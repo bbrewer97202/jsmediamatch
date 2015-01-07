@@ -1,0 +1,28 @@
+{
+  "name": "jsmediamatch",
+  "main": "jsmediamatch.js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/bbrewer97202/jsmediamatch",
+  "authors": [
+    "bbrewer97202 <bbrewer97202@gmail.com>"
+  ],
+  "description": "Give JavaScript insight into which CSS breakpoints or media queries are currently active",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "media",
+    "queries",
+    "matchmedia",
+    "breakpoint",
+    "mediaquery"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

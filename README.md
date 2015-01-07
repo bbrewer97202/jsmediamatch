@@ -16,7 +16,7 @@ Initialize jsmediamatch on load of your app. Pass in an object of key/value pair
 	});
 ```
 
-Listen for change events that return all media queries rules and whether or not they are matched. 
+Listen for change events on browser resize or orientation change that return all media queries rules and whether or not they are matched. 
 ```javascript
 	window.addEventListener('change.jsmediamatch', function(evt) {
 		console.log(evt.detail);
