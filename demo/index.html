@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<h1>jsmediamatch Demo page</h1>
+
+<table border="1" cellpadding="2">
+	<tr>
+		<th>mobile</th>
+		<th>tablet</th>
+		<th>desktop</th>
+		<th>largedesktop</th>
+	</tr>
+	<tr>
+		<td id="example-mobile"></td>
+		<td id="example-tablet"></td>
+		<td id="example-desktop"></td>
+		<td id="example-largedesktop"></td>
+	</tr>	
+</table>
+
+<p>Example:</p>
+<pre>
+jsmediamatch.init({
+	mobile: "(min-width:1px)",
+	tablet: "(min-width:768px)",
+	desktop: "(min-width:960px)",
+	largedesktop: "(min-width:1200px)"
+});
+</pre>
+
+<p>If you prefer an exclusive boolean result, the above could be rewritten as:</p>
+<pre>
+jsmediamatch.init({
+	mobile: "(max-width:767px)",
+	tablet: "(min-width:768px) and (max-width:959px)",
+	desktop: "(min-width:960px) and (max-width:1199px)",
+	largedesktop: "(min-width:1200px)"
+});	
+</pre>
+
+<script type="text/javascript" src="../jsmediamatch.js"></script>
+<script type="text/javascript">
+
+//initialize jsmediamatch, passing in an object of key/value pairs where each key describes a value media query	
+jsmediamatch.init({
+	mobile: "(min-width:1px)",
+	tablet: "(min-width:768px)",
+	desktop: "(min-width:960px)",
+	largedesktop: "(min-width:1200px)"
+});
+
+//reqister an event listener to know when media query change has happened (modern browsers, ie9+)
+if (window.addEventListener) {
+	window.addEventListener('change.jsmediamatch', function(evt) {
+		updateDemoTable(evt.detail);
+	});
+}
+
+//you can access the current media query state at any point via jsmediamatch.getState()
+updateDemoTable(jsmediamatch.getState());
+
+function updateDemoTable(mqState) {
+	for (var mq in mqState) {
+		document.getElementById('example-' + mq).innerHTML = mqState[mq];
+	}
+}
+
+</script>
+
+
+</body>
+</html>
